@@ -1,0 +1,9 @@
+<div class="app-shell">
+  <header class="topbar">
+    <a routerLink="/" class="brand"><span class="brand-symbol">§</span><span>Ofício <strong>POC</strong></span></a>
+    <span class="topbar-context">Documentos estruturados · dados fictícios</span>
+    <span class="health" [class.online]="backendStatus() === 'conectado'"><span class="health-dot"></span>API {{ backendStatus() }}</span>
+  </header>
+  <main class="workspace"><router-outlet /></main>
+  <footer class="footer">Demonstração técnica · Os nomes declarados não comprovam assinatura.</footer>
+</div>
