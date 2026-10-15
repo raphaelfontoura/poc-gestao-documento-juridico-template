@@ -37,6 +37,11 @@ export class Api {
       body: JSON.stringify({ templateId, useDrive }),
     });
   }
+  async downloadTemplate(id: string): Promise<Blob> {
+    const response = await fetch(`/api/documents/${id}/template`);
+    if (!response.ok) throw new Error(`Não foi possível baixar o modelo (HTTP ${response.status}).`);
+    return response.blob();
+  }
   upload(id: string, file: File): Promise<Preview> {
     const form = new FormData();
     form.append('file', file);

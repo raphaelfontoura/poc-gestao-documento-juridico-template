@@ -34,8 +34,8 @@ Acesse <http://localhost:4200>. A API responde em <http://localhost:8080/api/hea
 
 ## Usar a aplicação
 
-1. Escolha **Parecer** ou **Portaria** e clique em **Usar DOCX**.
-2. Baixe o modelo, preencha a coluna **Valor** da tabela de metadados e salve o arquivo em formato `.docx`. Preserve o marcador `METADADOS_POC_V1` e os nomes das chaves.
+1. No combobox **Tipo de manifestação**, escolha **Parecer** ou **Portaria** e clique em **Baixar modelo**. A aplicação cria o registro da manifestação, baixa o DOCX do tipo escolhido e abre a tela desse registro.
+2. Preencha a coluna **Valor** da tabela de metadados e salve o arquivo em formato `.docx`. Preserve o marcador `METADADOS_POC_V1` e os nomes das chaves. O link **Baixar modelo DOCX** na tela do registro permite repetir o download.
 3. Envie o DOCX para gerar uma prévia. Corrija os campos indicados se houver erros.
 4. Confirme a prévia válida para persistir os metadados e o arquivo. Depois, consulte o registro ou baixe o DOCX finalizado.
 
@@ -59,7 +59,7 @@ mvn spring-boot:run
 
 O arquivo `.env` é ignorado pelo Git; mantenha os valores reais apenas nele ou em outro armazenamento seguro. O comando `source` precisa ser repetido em cada novo terminal. Para obter as credenciais OAuth, preparar os modelos no Drive e resolver erros de autorização, siga [docs/google-drive.md](docs/google-drive.md).
 
-Com a integração configurada, clique em **Criar no Google Docs**, edite a cópia pelo link exibido e use **Ler versão atual do Drive** para gerar a prévia. Se a cópia ou a leitura falhar, o registro permanece disponível para o fluxo de upload de DOCX.
+Com a integração configurada, escolha o **Tipo de manifestação** e clique em **Criar no Google Docs**. Edite a cópia pelo link exibido e use **Ler versão atual do Drive** para gerar a prévia. Se a cópia ou a leitura falhar, o registro permanece disponível para baixar o modelo e seguir pelo fluxo de upload de DOCX.
 
 ## Estrutura do projeto
 

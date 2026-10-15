@@ -18,11 +18,11 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; }
-button, input { font: inherit; }
+button, input, select { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 a { color: inherit; }
-button:disabled { cursor: not-allowed; opacity: .5; }
+button:disabled, select:disabled { cursor: not-allowed; opacity: .5; }
 :focus-visible { outline: 3px solid #b58472; outline-offset: 3px; }
 .app-shell { min-height: 100vh; display: flex; flex-direction: column; }
 .topbar { height: 72px; display: flex; align-items: center; gap: 32px; padding: 0 max(24px, calc((100vw - 1220px) / 2)); background: var(--paper-raised); border-bottom: 1px solid var(--rule); }
@@ -47,14 +47,17 @@ p { line-height: 1.55; }
 .section-block { margin-bottom: 56px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); margin-bottom: 24px; }
 .section-heading > p { margin: 0; color: var(--ink-faint); font-size: 13px; }
-.template-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .template-card, .work-panel, .preview-panel { background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 6px; padding: 28px; }
-.template-card { min-height: 280px; display: flex; flex-direction: column; align-items: start; }
-.template-mark, .document-icon { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: 4px; color: var(--seal); font-family: Georgia, serif; font-size: 18px; }
-.template-card h3 { margin-top: 22px; }
-.template-card > p { color: var(--ink-soft); font-size: 14px; margin: 8px 0 0; }
-.template-card .field-note { color: var(--ink-faint); font-size: 12px; margin-top: 16px; }
-.button-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 24px; }
+.template-card { max-width: 760px; display: flex; flex-direction: column; align-items: start; }
+.template-card label { display: block; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
+.template-card select { width: 100%; max-width: 440px; min-height: 44px; padding: 10px 12px; border: 1px solid #c6cac8; border-radius: 4px; background: var(--control); color: var(--ink); }
+.template-summary { width: 100%; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.template-summary p { color: var(--ink-soft); font-size: 14px; margin: 8px 0 0; }
+.template-summary .field-note { color: var(--ink-faint); font-size: 12px; margin-top: 16px; }
+.template-summary ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 10px 0 0; }
+.template-summary li { padding: 6px 9px; border-radius: 3px; background: #f0eee8; color: var(--ink-soft); font-size: 12px; }
+.document-icon { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--rule); border-radius: 4px; color: var(--seal); font-family: Georgia, serif; font-size: 18px; }
+.button-row { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 24px; }
 .primary, .secondary { border-radius: 4px; min-height: 42px; padding: 10px 16px; font-size: 13px; font-weight: 700; text-decoration: none; text-align: center; transition: background .15s ease, color .15s ease, transform .12s ease; }
 .primary { border: 1px solid var(--seal); background: var(--seal); color: white; }
 .primary:hover:not(:disabled) { background: var(--seal-hover); }
@@ -102,9 +105,10 @@ code { font-size: .9em; background: #f1eee6; padding: 2px 4px; }
   .topbar-context { display: none; }
   .workspace { width: min(100% - 32px, 620px); padding-top: 32px; }
   .page-head { margin-bottom: 40px; align-items: start; }
-  .template-grid, .detail-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
   .section-heading > p, .count { display: none; }
-  .template-card { min-height: 250px; }
+  .template-card { padding: 20px; }
+  .template-card select, .template-card .button-row, .template-card .button-row button { width: 100%; max-width: none; }
   .document-main small { max-width: 170px; }
 }
 @media (prefers-reduced-motion: reduce) { .primary, .secondary, .document-row { transition: none; } }
